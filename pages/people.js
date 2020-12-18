@@ -1,15 +1,17 @@
-import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import React from "react";
 
-export default function Home() {
+const people = () => {
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href="/people">People</Link>
+      <h1>People</h1>
+      <Link href="/">Back to home</Link>
     </div>
   );
-}
+};
+
+export default people;
