@@ -1,17 +1,14 @@
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import Layout from "../components/layout";
 
-const people = () => {
+const People = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
       <h1>People</h1>
-      <Link href="/">Back to home</Link>
-    </div>
+    </Layout>
   );
 };
 
-export default people;
+export default People;
