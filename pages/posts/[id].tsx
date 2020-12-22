@@ -1,10 +1,11 @@
+import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import utilStyles from "../../styles/utils.module.css";
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
   return {
     paths,
@@ -12,8 +13,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params.id as string);
 
   return {
     props: {
@@ -53,7 +54,15 @@ function nestedArrayAndObject() {
   );
 }
 
-const Post = ({ postData }) => {
+type Props = {
+  postData: {
+    title: string;
+    date: string;
+    contentHtml: string;
+  };
+};
+
+const Post: React.FC<Props> = ({ postData }) => {
   return (
     <Layout>
       <Head>

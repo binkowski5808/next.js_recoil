@@ -7,7 +7,12 @@ import Head from "next/head";
 const name = "Your Name";
 export const siteTitle = "Next.js Sample Website";
 
-const Layout = ({ children, home }) => {
+type Props = {
+  children: React.ReactNode;
+  home?: boolean;
+};
+
+const Layout: React.FC<Props> = ({ children, home }) => {
   return (
     <div className={styles.container}>
       <Head>
